@@ -205,14 +205,12 @@ window.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
 
   if (currentScroll > lastScroll) {
-    // Scrolling down, hide the navbar
     gsap.to(headerContainer, {
       delay: 0.2,
       top: -headerContainer.clientHeight,
       duration: 0.5,
     });
   } else {
-    // Scrolling up, show the navbar
     gsap.to(headerContainer, { delay: 0.2, top: "0px", duration: 0.5 });
   }
   lastScroll = currentScroll;
