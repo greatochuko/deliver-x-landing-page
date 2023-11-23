@@ -1,10 +1,10 @@
 const header = document.querySelector("header");
+const headerContainer = document.querySelector("header .container");
 const mobileNav = document.querySelector(".mobile-nav");
 const menuBtn = document.querySelector(".menu-btn");
 const stats = document.querySelectorAll(".stat");
 const milestones = document.querySelectorAll(".milestone");
 const partners = document.querySelectorAll(".partners .flex-item img");
-const cart = document.getElementById("cart");
 
 gsap.to(header, {
   duration: 0.5,
@@ -200,4 +200,21 @@ gsap.from("footer .nav-section", {
   },
 });
 
-console.log(cart);
+let lastScroll = 0;
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > lastScroll) {
+    // Scrolling down, hide the navbar
+    console.log(headerContainer.clientHeight);
+    gsap.to(headerContainer, {
+      delay: 0.2,
+      top: -headerContainer.clientHeight,
+      duration: 0.5,
+    });
+  } else {
+    // Scrolling up, show the navbar
+    gsap.to(headerContainer, { delay: 0.2, top: "0px", duration: 0.5 });
+  }
+  lastScroll = currentScroll;
+});
