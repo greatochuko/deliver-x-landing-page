@@ -6,6 +6,7 @@
     <title>About - Deliver X - Webflow Ecommerce website template</title>
     <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.cdnfonts.com/css/metropolis-2" rel="stylesheet" />
   </head>
 
   <body>
@@ -13,7 +14,7 @@
       <div class="container">
         <div class="flex-container">
           <a href="" class="logo">
-            <img class="logo" src="/assets/logo.svg" alt="Deliver X logo"
+            <img src="/assets/logo.svg" alt="Deliver X logo"
           /></a>
           <div class="header-right">
             <nav>
@@ -31,14 +32,113 @@
                 <li>
                   <a href="https://delivertemplate.webflow.io/plans">Pricing</a>
                 </li>
-                <li>
-                  <a href="#">Pages<i class="fa-solid fa-chevron-down"></i></a>
+                <li class="pages">
+                  <a href="#">Pages<i class="fa-solid fa-chevron-down"></i> </a>
+                  <div class="floating-cart">
+                    <nav class="menu">
+                      <h4 class="heading">Menu</h4>
+                      <ul>
+                        <div class="list-1">
+                          <li>
+                            <a href="https://delivertemplate.webflow.io/home"
+                              >Home</a
+                            >
+                          </li>
+                          <li>
+                            <a href="https://delivertemplate.webflow.io/about"
+                              >About</a
+                            >
+                          </li>
+                          <li>
+                            <a href="https://delivertemplate.webflow.io/contact"
+                              >Contact</a
+                            >
+                          </li>
+                          <li>
+                            <a href="https://delivertemplate.webflow.io/blog"
+                              >Blog</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://delivertemplate.webflow.io/blog/4-tips-to-increase-your-side-income-in-food-delivery"
+                              >Blog posts</a
+                            >
+                          </li>
+                        </div>
+                        <div class="list-2">
+                          <li>
+                            <a href="https://delivertemplate.webflow.io/plans"
+                              >Plans</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://delivertemplate.webflow.io/product/deluxe"
+                              >Plan single</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://delivertemplate.webflow.io/download"
+                              >Register</a
+                            >
+                          </li>
+                        </div>
+                      </ul>
+                    </nav>
+                    <nav class="utility-pages">
+                      <h4 class="heading">Utility pages</h4>
+                      <ul>
+                        <li>
+                          <a
+                            href="https://delivertemplate.webflow.io/template-pages/start-here"
+                            >Start here</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://delivertemplate.webflow.io/template-pages/style-guide"
+                            >Styleguide</a
+                          >
+                        </li>
+                        <li>
+                          <a href="https://delivertemplate.webflow.io/401"
+                            >Password protected</a
+                          >
+                        </li>
+                        <li>
+                          <a href="https://delivertemplate.webflow.io/404"
+                            >404 Not found</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://delivertemplate.webflow.io/template-pages/licenses"
+                            >Licences</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://delivertemplate.webflow.io/template-pages/changelog"
+                            >Changelog</a
+                          >
+                        </li>
+                        <li class="browse-more-templates">
+                          <a
+                            href="https://brixtemplates.com/more-webflow-templates"
+                            >Browse More Templates</a
+                          >
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
                 </li>
               </ul>
             </nav>
 
-            <div class="cart">
-              <a href="https://delivertemplate.webflow.io/about#">Cart(0)</a>
+            <div class="cart" id="cart">
+              <a href="https://delivertemplate.webflow.io/about#">Cart()</a>
             </div>
             <div class="buttons">
               <div class="download-app-btn">
@@ -60,24 +160,24 @@
             </button>
           </div>
         </div>
+        <nav class="mobile-nav">
+          <ul>
+            <li><a href="https://delivertemplate.webflow.io/home">Home</a></li>
+            <li>
+              <a class="active" href="https://delivertemplate.webflow.io/about"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="https://delivertemplate.webflow.io/plans">Pricing</a>
+            </li>
+            <li>
+              <a href="#">Pages<i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+          </ul>
+          <button class="get-started-btn">Get started</button>
+        </nav>
       </div>
-      <nav class="mobile-nav">
-        <ul>
-          <li><a href="https://delivertemplate.webflow.io/home">Home</a></li>
-          <li>
-            <a class="active" href="https://delivertemplate.webflow.io/about"
-              >About</a
-            >
-          </li>
-          <li>
-            <a href="https://delivertemplate.webflow.io/plans">Pricing</a>
-          </li>
-          <li>
-            <a href="#">Pages<i class="fa-solid fa-chevron-down"></i></a>
-          </li>
-        </ul>
-        <button class="get-started-btn">Get started</button>
-      </nav>
     </header>
     <main>
       <section class="hero">
@@ -245,7 +345,7 @@
             </div>
             <div class="flex-item">
               <img src="/assets/restaurant-partner.svg" alt="" />
-              <h3>Customers</h3>
+              <h3>Restaurants</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit
                 phasellus mollis sit aliquam sit nullam.
@@ -253,7 +353,7 @@
             </div>
             <div class="flex-item">
               <img src="/assets/riders-partner.svg" alt="" />
-              <h3>Customers</h3>
+              <h3>Riders</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit
                 phasellus mollis sit aliquam sit nullam.
@@ -266,7 +366,7 @@
         <div class="container">
           <div class="heading">
             <h3>Press and news</h3>
-            <h2>See what the press says about Deliver X</h2>
+            <h2>See what the press says about <span>Deliver X</span></h2>
           </div>
           <div class="review-articles">
             <a href="#" class="article">
@@ -309,7 +409,7 @@
       <div class="container">
         <section class="download-app">
           <div class="text">
-            <a href="">
+            <a class="logo" href="/">
               <img src="/assets/footer-logo.svg" alt="deliver x logo"
             /></a>
             <p>
@@ -318,12 +418,12 @@
             </p>
           </div>
           <div class="buttons">
-            <button class="btn-primary">
+            <a href="https://www.apple.com/app-store/" class="btn-primary">
               <i class="fa-brands fa-apple"></i>Download for IOS
-            </button>
-            <button class="btn-primary">
+            </a>
+            <a href="https://play.google.com/" class="btn-primary">
               <i class="fa-brands fa-android"></i>Download for Android
-            </button>
+            </a>
           </div>
         </section>
         <section class="nav-section">
@@ -436,8 +536,8 @@
           </nav>
         </section>
         <p class="copyright">
-          Copyright &copy; Deliver X | Designed by <span>BRIX Templates</span> -
-          Powered by <span>Webflow</span>
+          Copyright &copy; Deliver X | Designed by
+          <a href="/">BRIX Templates</a> - Powered by <a href="/">Webflow</a>
         </p>
       </div>
     </footer>
@@ -449,7 +549,9 @@
       src="https://kit.fontawesome.com/6f117a6392.js"
       crossorigin="anonymous"
     ></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="/script/index.js"></script>
   </body>
 </html>

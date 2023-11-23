@@ -50,33 +50,44 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 10;
+  z-index: 1;
 }
 header .container {
+  position: absolute;
   background-color: #fff;
-  position: relative;
+  z-index: 10;
   width: 100%;
   padding: 32px 24px;
   box-shadow: 0 3px 12px rgba(18, 18, 18, 0.06);
 }
 header .container .flex-container {
+  max-width: 1270px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
+}
+header .container .flex-container .logo {
+  margin-right: 30px;
+  display: flex;
+  transition: 0.3s;
+}
+header .container .flex-container .logo:hover {
+  scale: 0.95;
 }
 
 .header-right {
   display: flex;
   align-items: center;
 }
-.header-right .nav, .header-right .mobile-nav {
+.header-right .nav {
   display: flex;
+  align-items: center;
 }
-.header-right .nav li, .header-right .mobile-nav li {
+.header-right .nav li {
   font-size: 16px;
 }
-.header-right .nav li a, .header-right .mobile-nav li a {
+.header-right .nav li a {
   font-weight: 500;
   padding: 0 13px;
   white-space: nowrap;
@@ -85,22 +96,103 @@ header .container .flex-container {
   align-items: center;
   gap: 4px;
 }
-.header-right .nav li a i, .header-right .mobile-nav li a i {
+.header-right .nav li a i {
   font-size: 12px;
   transition: 0.3s;
 }
-.header-right .nav li a:hover i, .header-right .mobile-nav li a:hover i {
-  transform: rotate(180deg);
+.header-right .nav li a:hover i {
+  transform: rotate(-180deg);
 }
-.header-right .nav li a:hover, .header-right .mobile-nav li a:hover,
-.header-right .nav li a.active,
-.header-right .mobile-nav li a.active {
+.header-right .nav li a:hover,
+.header-right .nav li a.active {
   color: #ff5634;
 }
 .header-right .cart {
   margin-left: 13px;
-  font-size: 18px;
   font-weight: 500;
+  position: relative;
+}
+.header-right .pages {
+  position: relative;
+  padding: 12px 0;
+  display: inline;
+}
+.header-right .floating-cart {
+  position: absolute;
+  padding: 60px 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(16, 16, 16, 0.08);
+  border-radius: 24px;
+  top: 38px;
+  left: -220px;
+  display: none;
+  gap: 60px;
+  opacity: 0;
+  margin-top: 50px;
+  transition: 3s;
+}
+.header-right .floating-cart .heading {
+  font-size: 20px;
+  color: #121212;
+  line-height: 1.1em;
+  margin-bottom: 40px;
+}
+.header-right .floating-cart .utility-pages ul {
+  flex-direction: column;
+  gap: 18px;
+}
+.header-right .floating-cart ul {
+  display: flex;
+  gap: 18px;
+}
+.header-right .floating-cart ul div {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.header-right .floating-cart li {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.111em;
+  color: #656565;
+  white-space: nowrap;
+}
+.header-right .floating-cart li a {
+  transition: 0.3s;
+  padding: 0;
+}
+.header-right .floating-cart li a:hover {
+  color: #ff5634;
+}
+.header-right .floating-cart li.browse-more-templates a {
+  color: #ff5634;
+  border-bottom: 3px solid #ff5634;
+  transition: 0.3s;
+  display: block;
+  padding-bottom: 6px;
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1.111rem;
+}
+.header-right .floating-cart li.browse-more-templates a:hover {
+  color: #121212;
+  border-bottom-color: #121212;
+}
+.header-right .pages:hover .floating-cart {
+  display: flex;
+  animation: fade-up-in 0.3s forwards;
+}
+.header-right .pages:hover > a {
+  color: #ff5634;
+}
+.header-right .pages:hover > a i {
+  transform: rotate(-180deg);
+}
+@keyframes fade-up-in {
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
 }
 .header-right .buttons {
   display: flex;
@@ -148,8 +240,8 @@ header .container .flex-container {
 }
 
 .mobile-nav {
-  position: absolute;
   left: 0;
+  z-index: 5;
   top: -100vh;
   transition: 0.4s;
   height: 90vh;
@@ -211,7 +303,7 @@ header .container .flex-container {
   gap: 100px;
   margin: auto;
   margin-top: 112px;
-  padding: 70px 24px 127px 24px;
+  padding: 70px 24px 106px 24px;
 }
 .hero .text-container {
   display: grid;
@@ -223,6 +315,7 @@ header .container .flex-container {
   font-size: 18px;
   color: #ff5634;
   margin-bottom: 20px;
+  letter-spacing: 0.06em;
 }
 .hero .text-container .text h1 {
   color: rgb(18, 18, 18);
@@ -235,6 +328,8 @@ header .container .flex-container {
   line-height: 1.667em;
   font-size: 18px;
   color: #656565;
+  max-width: 590px;
+  margin: auto;
 }
 .hero .text-container .images {
   position: relative;
@@ -268,6 +363,7 @@ header .container .flex-container {
 }
 .hero .stats-container .stat p:first-child {
   margin-bottom: 6px;
+  font-weight: 700;
 }
 .hero .stats-container .stat p:first-child span {
   color: #ff5634;
@@ -408,13 +504,12 @@ section.partners,
 section.press-and-news {
   text-align: center;
   background-color: #fff;
-  padding: 166px 0;
+  padding: 166px 24px;
 }
 section.partners .container,
 section.press-and-news .container {
   max-width: 1270px;
   margin: auto;
-  padding: 0 24px;
 }
 section.partners .container .heading,
 section.press-and-news .container .heading {
@@ -426,10 +521,11 @@ section.partners .container .heading h3,
 section.press-and-news .container .heading h3 {
   color: #ff5634;
   font-size: 18px;
-  font-weight: 700px;
+  font-weight: 700;
   line-height: 1.667em;
   margin-bottom: 12px;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 section.partners .container .heading h2,
 section.press-and-news .container .heading h2 {
@@ -438,6 +534,10 @@ section.press-and-news .container .heading h2 {
   font-size: 44px;
   margin-bottom: 16px;
   line-height: 1.227em;
+}
+section.partners .container .heading h2 span,
+section.press-and-news .container .heading h2 span {
+  white-space: nowrap;
 }
 section.partners .container .heading p,
 section.press-and-news .container .heading p {
@@ -504,6 +604,7 @@ section.press-and-news .container .review-articles .article h4 {
 }
 section.press-and-news .container .review-articles .article .bottom-flex {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 section.press-and-news .container .review-articles .article .bottom-flex p {
@@ -515,6 +616,7 @@ section.press-and-news .container .review-articles .article .bottom-flex p {
 }
 section.press-and-news .container .review-articles .article .bottom-flex p i {
   transform: rotate(45deg);
+  transition: 0.3s;
 }
 section.press-and-news .container .review-articles .article .bottom-flex .date {
   font-size: 20px;
@@ -525,6 +627,9 @@ section.press-and-news .container .review-articles .article .bottom-flex .date {
 section.press-and-news .container .review-articles .article:hover {
   box-shadow: 0 6px 24px rgba(16, 16, 16, 0.14);
   transform: translate3d(0, -5px, 0.01px);
+}
+section.press-and-news .container .review-articles .article:hover p i {
+  transform: translate(3px, -3px) rotate(45deg);
 }
 
 footer {
@@ -568,7 +673,7 @@ footer .container .download-app .buttons {
   display: flex;
   gap: 26px;
 }
-footer .container .download-app .buttons button {
+footer .container .download-app .buttons a {
   padding: 20px 20px 20px 15px;
   border: solid 1px #ff5634;
   border-radius: 14px;
@@ -577,13 +682,14 @@ footer .container .download-app .buttons button {
   display: flex;
   align-items: center;
 }
-footer .container .download-app .buttons button i {
+footer .container .download-app .buttons a i {
   font-size: 24px;
   margin: 0 10px 0 5px;
 }
 footer .container .nav-section {
   padding: 100px 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto;
   justify-content: space-between;
   column-gap: 40px;
   row-gap: 50px;
@@ -651,16 +757,60 @@ footer .container .copyright {
   border-top: 1px solid #ededed;
   text-align: center;
   line-height: 1.667em;
+  color: #656565;
+}
+footer .container .copyright a {
+  color: #ff5634;
+  transition: color 0.3s;
+}
+footer .container .copyright a:hover {
+  color: #121212;
+}
+
+.webflow-logo {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  padding: 6px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 @media screen and (max-width: 991px) {
   header .container {
     padding: 24px;
   }
-  .header-right .buttons {
-    margin: 0 25px;
+  header .container .flex-container .logo {
+    max-width: 160px;
   }
-  .header-right .nav, .header-right .mobile-nav {
+  .hero {
+    margin-top: 108px;
+  }
+  .hero .text-container {
+    grid-template-columns: 1fr;
+    max-width: 680px;
+    margin: auto;
+    text-align: center;
+    gap: 60px;
+  }
+  .hero .text-container .text h1 {
+    font-size: 52px;
+  }
+  .hero .images {
+    max-width: 500px;
+    margin: auto;
+  }
+  .hero .stats-container .stat p:first-child {
+    font-size: 48px;
+  }
+  .header-right .buttons {
+    margin-right: 25px;
+  }
+  .header-right .nav {
     display: none;
   }
   .header-right .menu-btn {
@@ -669,22 +819,279 @@ footer .container .copyright {
   .mobile-nav {
     display: flex;
     flex-direction: column;
+    padding: 50px 20px 60px;
+    position: absolute;
   }
   .mobile-nav ul {
     display: flex;
   }
+  .mobile-nav ul a {
+    font-size: 28px;
+  }
+  .mobile-nav.show {
+    top: 86px;
+  }
+  section.about,
+  section.mission {
+    flex-direction: column;
+  }
+  section.about .text,
+  section.mission .text {
+    max-width: 680px;
+    order: -1;
+    width: 100%;
+  }
+  section.about .text h3,
+  section.mission .text h3 {
+    font-size: 38px;
+    margin: 0 0 12px;
+  }
+  section.about .text .container,
+  section.mission .text .container {
+    max-width: 100%;
+    margin-left: 0;
+  }
+  section.about .image,
+  section.mission .image {
+    max-width: 680px;
+  }
+  section.journey {
+    flex-direction: column;
+  }
+  section.journey .text {
+    max-width: 680px;
+    margin: auto;
+    position: static;
+  }
+  section.journey .text .container {
+    max-width: 100%;
+  }
+  section.journey .text h3 {
+    font-size: 38px;
+    margin-bottom: 12px;
+  }
+  section.journey .milestones {
+    margin: auto;
+    max-width: 680px;
+  }
+  section.journey .milestones .milestone {
+    padding: 50px 34px;
+  }
+  section.partners .container .heading h2 {
+    font-size: 38px;
+  }
+  section.partners .container .flex-container {
+    max-width: 350px;
+    margin: auto;
+    flex-direction: column;
+    gap: 64px;
+  }
+  section.partners .container .flex-container .flex-item img {
+    margin-bottom: 24px;
+  }
+  section.press-and-news {
+    max-width: 680px;
+    margin: auto;
+    padding: 138px 0;
+  }
+  section.press-and-news .container {
+    padding: 0;
+  }
+  section.press-and-news .container .heading h2 {
+    font-size: 38px;
+  }
+  section.press-and-news .container .review-articles {
+    grid-template-columns: 1fr;
+  }
+  section.press-and-news .container .review-articles .article {
+    padding: 68px 53px;
+  }
+  section.press-and-news .container .review-articles .article .bottom-flex .date {
+    font-size: 18px;
+  }
+  footer .container .download-app {
+    flex-direction: column;
+    align-items: start;
+    gap: 40px;
+  }
+  footer .container .nav-section .available-in ul {
+    grid-template-columns: 1fr;
+  }
 }
 @media screen and (max-width: 767px) {
+  header .container .flex-container .logo {
+    max-width: 148px;
+  }
   .header-right .buttons {
     display: none;
   }
   .header-right .cart {
     margin-right: 32px;
   }
+  .hero {
+    padding: 60px 24px 73px 24px;
+    margin-top: 96px;
+  }
+  .hero .text-container {
+    gap: 50px;
+  }
+  .hero .text-container .text h2 {
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+  .hero .text-container .text h1 {
+    font-size: 43px;
+    margin-bottom: 10px;
+  }
+  .hero .text-container .text p {
+    font-size: 16px;
+    max-width: 590px;
+    margin: auto;
+  }
+  .hero .stats-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: auto;
+    gap: 40px;
+    width: fit-content;
+  }
+  .hero .stats-container .stat p:first-child {
+    font-size: 40px;
+    margin-bottom: 6px;
+    line-height: 1.179em;
+  }
+  .hero .stats-container .stat p:nth-child(2) {
+    font-size: 16px;
+  }
+  section.about .text h2,
+  section.mission .text h2,
+  section.journey .text h2 {
+    font-size: 16px;
+  }
+  section.about .text h3,
+  section.mission .text h3,
+  section.journey .text h3 {
+    font-size: 32px;
+  }
+  section.about .text p,
+  section.mission .text p,
+  section.journey .text p {
+    font-size: 16px;
+  }
+  section.journey .text h3 {
+    max-width: 400px;
+  }
+  section.journey .text p {
+    margin-bottom: 40px;
+  }
+  section.journey .text button {
+    border-radius: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 16px;
+  }
+  section.journey .milestones .milestone h4 {
+    font-size: 20px;
+  }
+  section.journey .milestones .milestone h3 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  section.journey .milestones .milestone p {
+    font-size: 16px;
+  }
+  section.partners .container .heading h3 {
+    font-size: 16px;
+  }
+  section.partners .container .heading h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  section.partners .container .heading p {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  section.partners .container .flex-container .flex-item img {
+    max-width: 182px;
+  }
+  section.partners .container .flex-container .flex-item h3 {
+    font-size: 23px;
+  }
+  section.partners .container .flex-container .flex-item p {
+    font-size: 16px;
+  }
+  section.press-and-news .container .heading {
+    margin-bottom: 48px;
+  }
+  section.press-and-news .container .heading h3 {
+    font-size: 16px;
+  }
+  section.press-and-news .container .heading h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  section.press-and-news .container .review-articles .article {
+    padding: 58px 34px;
+  }
+  section.press-and-news .container .review-articles .article h4 {
+    font-size: 23px;
+  }
+  footer .container .download-app {
+    gap: 30px;
+  }
+  footer .container .download-app .buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    gap: 20px;
+  }
+  footer .container .download-app .buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .container .download-app .text a.logo {
+    margin-bottom: 20px;
+  }
+  footer .container .nav-section {
+    grid-template-columns: 1fr 1fr;
+  }
+  footer .container .nav-section .heading {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  footer .container .nav-section a {
+    width: fit-content;
+    font-size: 16px;
+  }
+  footer .container .nav-section .available-in {
+    grid-column: span 2;
+  }
+  footer .container .nav-section .available-in ul {
+    grid-template-columns: auto 1fr;
+  }
+  footer .container .nav-section .available-in ul li img {
+    max-width: 60px;
+    border-radius: 10px;
+  }
+  footer .container .copyright {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 479px) {
   header .container {
     padding: 24px 20px;
+  }
+  .hero {
+    margin-top: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .hero .text-container .text h1 {
+    font-size: 36px;
+  }
+  .hero .stats-container .stat p:first-child {
+    font-size: 33px;
   }
   .logo {
     width: 123px;
@@ -693,14 +1100,76 @@ footer .container .copyright {
     margin-right: 20px;
     font-size: 16px;
   }
-  .mobile-nav {
-    padding: 50px 20px 60px;
-    position: absolute;
+  section.about,
+  section.mission,
+  section.journey {
+    padding: 0 20px;
   }
-  .mobile-nav ul a {
+  section.about .text h3,
+  section.mission .text h3,
+  section.journey .text h3 {
     font-size: 28px;
   }
-  .mobile-nav.show {
-    top: 86px;
+  section.journey {
+    padding: 96px 20px;
+  }
+  section.journey .milestones .milestone {
+    padding: 42px 25px;
+  }
+  section.journey .text button {
+    width: 100%;
+  }
+  section.partners {
+    padding: 96px 20px;
+  }
+  section.partners .container .heading h2 {
+    font-size: 28px;
+  }
+  section.partners .container .flex-container .flex-item img {
+    max-width: 150px;
+  }
+  section.partners .container .flex-container .flex-item h3 {
+    margin-bottom: 8px;
+  }
+  section.press-and-news .container {
+    padding: 0 20px;
+  }
+  section.press-and-news .container .review-articles .article {
+    padding: 48px 25px;
+  }
+  section.press-and-news .container .review-articles .article h4 {
+    font-size: 23px;
+  }
+  section.press-and-news .container .review-articles .article .bottom-flex {
+    flex-flow: column-reverse;
+    align-items: start;
+    gap: 10px;
+  }
+  footer .container {
+    padding: 0 20px;
+  }
+  footer .container .download-app {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+  footer .container .download-app .text a.logo {
+    max-width: 138px;
+    margin-bottom: 15px;
+  }
+  footer .container .download-app .text p {
+    font-size: 16px;
+  }
+  footer .container .nav-section {
+    display: flex;
+    flex-direction: column;
+    padding: 70px 0;
+  }
+  footer .container .nav-section .available-in ul {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero {
+    padding-bottom: 127px;
   }
 }
