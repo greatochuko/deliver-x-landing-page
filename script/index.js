@@ -206,7 +206,6 @@ window.addEventListener("scroll", () => {
 
   if (currentScroll > lastScroll) {
     // Scrolling down, hide the navbar
-    console.log(headerContainer.clientHeight);
     gsap.to(headerContainer, {
       delay: 0.2,
       top: -headerContainer.clientHeight,
